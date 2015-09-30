@@ -74,16 +74,15 @@ Currently, the following warnings haven't been resolved during configuration of 
 
 - `bootstrap.sh` fails with:
 
-    ==> virtualbox-iso: ISO download failed.
-    Build 'virtualbox-iso' errored: ISO download failed.
+      ==> virtualbox-iso: ISO download failed.
+      Build 'virtualbox-iso' errored: ISO download failed.
 
   Download Solaris 10 Image and place under 'packer/_dl'. (Re-read 'Getting Started')
 
 - `provision.sh` fails with:
 
-    ==> default: Running provisioner: solstudio (shell)...
-        default: Running: /var/folders/ps/x27f8bys2nzf14pngdn187bh0000gn/T/vagrant-shell20150930-23324-17csbtb.sh
-    ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
+      ==> default: Running provisioner: solstudio (shell)...
+      ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
 
   Download Solaris Studio Installar and place it under 'vagrant/_dl'. (Re-read 'Getting Started')
 
