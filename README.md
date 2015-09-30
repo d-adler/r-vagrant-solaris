@@ -23,12 +23,17 @@ with
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
 
-    $ ./bootstrap.sh
+    ./bootstrap.sh
    
-   This took approx. 10 min.
+   This took approx. 10 minutes on my machine.
+
 3. Run provision script
 
-    $ ./provision.sh
+    ./provision.sh
+
+   This takes a lot more time. 
+   Feel free to remove various provisioners in `vagrant/provision.sh` such as `tex` or even remove Compiler installations (`solstudio` or `gcc`) R builds ('rbuild-*`).
+
 
 ## Login to the Image
 
