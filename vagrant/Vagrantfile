@@ -1,0 +1,13 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "sol10"
+  config.vm.hostname = "sol10"
+  config.ssh.insert_key = false
+  config.vm.provision "solstudio",    type: "shell", path: "scripts/solstudio.sh",    privileged: false
+  config.vm.provision "rdev",         type: "shell", path: "scripts/rdev.sh",         privileged: false
+  config.vm.provision "tex",          type: "shell", path: "scripts/tex.sh",          privileged: false
+  config.vm.provision "gcc",          type: "shell", path: "scripts/gcc.sh",          privileged: false
+  config.vm.provision "rbuild-sun32", type: "shell", path: "scripts/rbuild-sun32.sh", privileged: false
+  config.vm.provision "rbuild-sun64", type: "shell", path: "scripts/rbuild-sun64.sh", privileged: false
+  config.vm.provision "rbuild-gcc32", type: "shell", path: "scripts/rbuild-gcc32.sh", privileged: false
+  config.vm.provision "rbuild-gcc64", type: "shell", path: "scripts/rbuild-gcc64.sh", privileged: false
+end

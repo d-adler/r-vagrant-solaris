@@ -1,8 +1,2 @@
-cd packer
-./bootstrap.sh
-cd ..
-
-cd vagrant
-./bootstrap.sh
-cd ..
+cd packer && ./bootstrap.sh && cd ../vagrant && ./bootstrap.sh
 

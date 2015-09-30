@@ -65,3 +65,16 @@ Using the 64-bit R version using the Sun compiler:
 
 - Mac OS X 10.8.5, Packer 0.7.5, Vagrant 1.7.2, VirtualBox 4.3.26
 
+## Troubleshooting
+
+- `bootstrap.sh` fails with:
+
+    ==> virtualbox-iso: ISO download failed.
+    Build 'virtualbox-iso' errored: ISO download failed.
+
+  Download Solaris 10 Image and place under 'packer/_dl'. (Re-read 'Getting Started')
+
+### Timings
+
+  ./packer/bootstrap.sh took ~ 10 min.
+
