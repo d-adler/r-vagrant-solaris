@@ -89,7 +89,3 @@ Currently, the following warnings haven't been resolved during configuration of 
 
   Download Solaris Studio Installar and place it under 'vagrant/_dl'. (Re-read 'Getting Started')
 
-### Timings
-
-  ./packer/bootstrap.sh took ~ 10 min.
-
