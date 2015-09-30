@@ -23,13 +23,17 @@ with
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
 
-    ./bootstrap.sh
+   ~~~
+   $ ./bootstrap.sh
+   ~~~
 
    This took approx. 10 minutes on my machine.
 3. Run provision script
     
-    ./provision.sh
-   
+   ~~~
+   $ ./provision.sh
+   ~~~
+
    This takes a lot more time.  
    Feel free to remove various provisioners in `vagrant/provision.sh` such as `tex` or even remove Compiler installations (`solstudio` or `gcc`) and R builds (`rbuild-*`).
 
@@ -69,16 +73,20 @@ Using the 64-bit R version using the Sun compiler:
 ## Troubleshooting
 
 - `bootstrap.sh` fails with:
-
-      ==> virtualbox-iso: ISO download failed.
-      Build 'virtualbox-iso' errored: ISO download failed.
+  
+  ~~~
+  ==> virtualbox-iso: ISO download failed.
+  Build 'virtualbox-iso' errored: ISO download failed.
+  ~~~
 
   Download Solaris 10 Image and place file under `packer/_dl`. (Re-read 'Getting Started')
 
 - `provision.sh` fails with:
 
-      ==> default: Running provisioner: solstudio (shell)...
-      ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
+  ~~~
+  ==> default: Running provisioner: solstudio (shell)...
+  ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
+  ~~~
 
   Download Solaris Studio Installer and place file under `vagrant/_dl`. (Re-read 'Getting Started')
 
