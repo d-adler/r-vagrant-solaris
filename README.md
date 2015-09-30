@@ -33,7 +33,7 @@ with
    This takes a lot more time.  
    Feel free to remove various provisioners in `vagrant/provision.sh` such as `tex` or even remove Compiler installations (`solstudio` or `gcc`) and R builds (`rbuild-*`).
 
-## Login to the Image
+## Login 
 
 To enter the guest OS, use the typical vagrant ssh command:
 
