@@ -84,9 +84,10 @@ Using the 64-bit R version using the Sun compiler:
 
 - Warnings during configuration of R:
 
-    configure: WARNING: you cannot build info or HTML versions of the R manuals
-    configure: WARNING: I could not determine a browser
-    configure: WARNING: I could not determine a PDF viewer
-
+~~~
+configure: WARNING: you cannot build info or HTML versions of the R manuals
+configure: WARNING: I could not determine a browser
+configure: WARNING: I could not determine a PDF viewer
+~~~
   These haven't been resolved yet, but do not seem to be problematic for development.
 
