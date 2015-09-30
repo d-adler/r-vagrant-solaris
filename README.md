@@ -5,28 +5,27 @@ with
 - Sun C Compiler (Solaris Studio 12.3) 
 - GCC 4.9 (from OpenCSW)
 - Texlive
-- R 32- and 64-bit versions compiled using the Sun and GNU compiler 
-preinstalled.
+- R 32- and 64-bit versions using the Sun and GNU compiler 
 
 ## Prequisites
 
-- Packer  (Freely available at https://packer.io/downloads.html)
-- VirtualBox (Freely available at https://www.virtualbox.org/wiki/Downloads)
-- Vagrant (Freely available at https://www.vagrantup.com/downloads.html)
+- Packer (https://packer.io/downloads.html)
+- VirtualBox (https://www.virtualbox.org/wiki/Downloads)
+- Vagrant (https://www.vagrantup.com/downloads.html)
 - POSIX-Shell (on Windows use Cygwin or MinGW)
-- Unix CLI Tools: git, curl
+- CLI Tools: git, curl
 - ~20 GB of harddisk space (for downloaded files and VM)
 
 ## Getting Started
 
-1. Download some files available from Oracle (You need to be a registered user!)
+1. Download following files available from Oracle (You need to be a registered user!)
    - Solaris ISO Image `sol-10-u11-ga-x86-dvd.iso` into `packer/_dl`
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
-    $ ./bootstrap.sh
+     $ ./bootstrap.sh
    This took approx. 10 min.
 3. Run provision script
-    $ ./provision.sh
+     $ ./provision.sh
 
 ## R Warnings
 
