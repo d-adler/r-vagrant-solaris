@@ -15,6 +15,7 @@ preinstalled.
 - Vagrant (Freely available at https://www.vagrantup.com/downloads.html)
 - POSIX-Shell (on Windows use Cygwin or MinGW)
 - Unix CLI Tools: git, curl
+- ~20 GB of harddisk space (for downloaded files and VM)
 
 ## Getting Started
 
@@ -23,6 +24,7 @@ preinstalled.
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
     $ ./bootstrap.sh
+   This took approx. 10 min.
 3. Run provision script
     $ ./provision.sh
 
@@ -73,6 +75,14 @@ Using the 64-bit R version using the Sun compiler:
     Build 'virtualbox-iso' errored: ISO download failed.
 
   Download Solaris 10 Image and place under 'packer/_dl'. (Re-read 'Getting Started')
+
+- `provision.sh` fails with:
+
+    ==> default: Running provisioner: solstudio (shell)...
+        default: Running: /var/folders/ps/x27f8bys2nzf14pngdn187bh0000gn/T/vagrant-shell20150930-23324-17csbtb.sh
+    ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
+
+  Download Solaris Studio Installar and place it under 'vagrant/_dl'. (Re-read 'Getting Started')
 
 ### Timings
 
