@@ -66,13 +66,6 @@ Using the 64-bit R version using the Sun compiler:
 
 ## Warnings during building R
 
-Currently, the following warnings haven't been resolved during configuration of the R source tree:
-
-    configure: WARNING: you cannot build info or HTML versions of the R manuals
-    configure: WARNING: I could not determine a browser
-    configure: WARNING: I could not determine a PDF viewer
-
-
 ## Troubleshooting
 
 - `bootstrap.sh` fails with:
@@ -88,4 +81,12 @@ Currently, the following warnings haven't been resolved during configuration of 
       ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
 
   Download Solaris Studio Installer and place file under `vagrant/_dl`. (Re-read 'Getting Started')
+
+- Warnings during configuration of R:
+
+    configure: WARNING: you cannot build info or HTML versions of the R manuals
+    configure: WARNING: I could not determine a browser
+    configure: WARNING: I could not determine a PDF viewer
+
+  These haven't been resolved yet, but do not seem to be problematic for development.
 
