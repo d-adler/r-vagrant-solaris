@@ -22,10 +22,13 @@ with
    - Solaris ISO Image `sol-10-u11-ga-x86-dvd.iso` into `packer/_dl`
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
-     $ ./bootstrap.sh
+
+    $ ./bootstrap.sh
+   
    This took approx. 10 min.
 3. Run provision script
-     $ ./provision.sh
+
+    $ ./provision.sh
 
 ## R Warnings
 
