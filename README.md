@@ -30,14 +30,6 @@ with
 
     $ ./provision.sh
 
-## R Warnings
-
-Currently, the following warnings haven't been resolved during configuration of the R source tree:
-
-    configure: WARNING: you cannot build info or HTML versions of the R manuals
-    configure: WARNING: I could not determine a browser
-    configure: WARNING: I could not determine a PDF viewer
-
 ## Login to the Image
 
 To enter the guest OS, use the typical vagrant ssh command:
@@ -51,7 +43,7 @@ Four different R versions are compiled and installed on the system.
 In order to use a specific R version put its `bin` directory into your `PATH`.
 
 Compiler        | Arch     | Prefix   
-----------------+----------+---------------------
+--------------- | -------- | ---------------------
 Sun Compiler    | 32-bit   | `/usr/R-sun32`
                 | 64-bit   | `/usr/R-sun64`
 GCC Compiler    | 32-bit   | `/usr/R-gcc32`
@@ -68,6 +60,15 @@ Using the 64-bit R version using the Sun compiler:
 ## Test Host Configurations
 
 - Mac OS X 10.8.5, Packer 0.7.5, Vagrant 1.7.2, VirtualBox 4.3.26
+
+## Warnings during building R
+
+Currently, the following warnings haven't been resolved during configuration of the R source tree:
+
+    configure: WARNING: you cannot build info or HTML versions of the R manuals
+    configure: WARNING: I could not determine a browser
+    configure: WARNING: I could not determine a PDF viewer
+
 
 ## Troubleshooting
 
