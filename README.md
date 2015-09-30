@@ -80,12 +80,12 @@ Currently, the following warnings haven't been resolved during configuration of 
       ==> virtualbox-iso: ISO download failed.
       Build 'virtualbox-iso' errored: ISO download failed.
 
-  Download Solaris 10 Image and place under 'packer/_dl'. (Re-read 'Getting Started')
+  Download Solaris 10 Image and place file under `packer/_dl`. (Re-read 'Getting Started')
 
 - `provision.sh` fails with:
 
       ==> default: Running provisioner: solstudio (shell)...
       ==> default: bzcat: Can't open input file /vagrant/_dl/SolarisStudio12.3-solaris-x86-pkg.tar.bz2: No such file or directory.
 
-  Download Solaris Studio Installar and place it under 'vagrant/_dl'. (Re-read 'Getting Started')
+  Download Solaris Studio Installer and place file under `vagrant/_dl`. (Re-read 'Getting Started')
 
