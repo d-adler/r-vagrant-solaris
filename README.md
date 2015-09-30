@@ -66,9 +66,8 @@ Using the 64-bit R version using the Sun compiler:
 
 ## Test Host Configurations
 
+The following configurations have been reported as successful:
 - Mac OS X 10.8.5, Packer 0.7.5, Vagrant 1.7.2, VirtualBox 4.3.26
-
-## Warnings during building R
 
 ## Troubleshooting
 
