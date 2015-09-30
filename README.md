@@ -30,8 +30,8 @@ with
     
     ./provision.sh
    
-   This takes a lot more time. 
-   Feel free to remove various provisioners in `vagrant/provision.sh` such as `tex` or even remove Compiler installations (`solstudio` or `gcc`) R builds ('rbuild-*`).
+   This takes a lot more time.  
+   Feel free to remove various provisioners in `vagrant/provision.sh` such as `tex` or even remove Compiler installations (`solstudio` or `gcc`) and R builds (`rbuild-*`).
 
 ## Login to the Image
 
