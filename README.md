@@ -23,7 +23,7 @@ with
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
 
-    ./bootstrap.sh
+       ./bootstrap.sh
    
    This took approx. 10 minutes on my machine.
 
