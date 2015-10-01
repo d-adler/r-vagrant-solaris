@@ -62,6 +62,7 @@ Further actions:
 
 Action      | Command
 ----------- | ----------------------
+Reboot VM   | `$ vagrant reload`
 Shutdown VM | `$ vagrant halt`    
 Boot VM     | `$ vagrant up`
 Suspend VM  | `$ vagrant suspend` 
