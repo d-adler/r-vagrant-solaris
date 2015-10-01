@@ -1,11 +1,15 @@
 # Vagrant Development Environment for R on Solaris 
 
-This development environment provisions a Solaris 10 (u11) Guest OS
-with 
-- Sun C Compiler (Solaris Studio 12.3) 
-- GCC 4.9 (from OpenCSW)
-- Texlive
-- R 32- and 64-bit versions using the Sun and GNU compiler 
+This development environment provisions a Solaris 10 (u11) x86_64 Guest OS with 
+- Sun C/C++/Fortran Compiler (Solaris Studio 12.3) 
+- GCC C/C++/Fortran Compiler (Version 4.9 from OpenCSW) 
+- Texlive (from OpenCSW) 
+- R 32- and 64-bit versions (build from Source) using the Sun and GNU compiler
+
+By default, the 32-bit version of R is compiled with a Sun Compiler and gets installed in `/usr/R-sun32`.
+
+Optionally, the 64-bit version of R 'sun' compiled, TexLive, GCC compiler and 32/64-bit R versions with 'gcc' can be installed.
+However, this takes several hours to complete (i.e. 5-6 hours using a fast internet connection, the VM Image growed to 9.5 GB).
 
 ## Prequisites
 
@@ -18,7 +22,8 @@ with
 
 ## Getting Started
 
-1. Download following files available from Oracle (You need to be a registered user!)
+1. Download Files
+   The following files need to be downloaded and are available from Oracle (You need to be a registered user!)
    - Solaris ISO Image `sol-10-u11-ga-x86-dvd.iso` into `packer/_dl`
    - Solaris Studio Installer `SolarisStudio12.3-solaris-x86-pkg.tar.bz2` into `vagrant/_dl`
 2. Run bootstrap script
@@ -27,44 +32,92 @@ with
    $ ./bootstrap.sh
    ~~~
 
-   This took approx. 10 minutes on my machine.
-3. Run provision script
+   After that, you will have a the vagrant base box `sol10` installed in your local vagrant box repository.
+   The box only contains the operating system, standard package tools and preparations for vagrant.
+   Run `vagrant box list` to verify.
+   
+   Typically this takes approx. 10 minutes to finish on a test machine with fast internet connection.
+   
+3. Run provision script with a default 'minimal' setup.
     
    ~~~
    $ ./provision.sh
    ~~~
 
-   This takes a lot more time.  
-   Feel free to remove various provisioners in `vagrant/provision.sh` such as `tex` or even remove Compiler installations (`solstudio` or `gcc`) and R builds (`rbuild-*`).
+   After that, the Guest OS VM is running with a pre-installed sun compiler and the R sources and a 32-bit version installed to `/usr/R-sun32`.
 
-## Login 
+   This step took approx. 15 minutes to finish on a test machine with fast internet connection.
+   
+## Entering the VM
 
-To enter the guest OS, use the typical vagrant ssh command:
+First, change to the `vagrant` directory.
 
-    $ cd vagrant 
+    $ cd vagrant
+
+And from here you can perform various task such as login to the guest os:
+
     $ vagrant ssh
 
-## Using R
+Further actions:
 
-Four different R versions are compiled and installed on the system.
+Action      | Command
+----------- | ----------------------
+Shutdown VM | `$ vagrant halt`    
+Boot VM     | `$ vagrant up`
+Suspend VM  | `$ vagrant suspend` 
+Resume VM   | `$ vagrant resume` 
+Delete VM   | `$ vagrant destroy`
+
+## Starting R 
+
+Enter the Guest OS via `vagrant ssh`, then:
+
+~~~
+-bash-3.2$ /usr/R-sun32/bin/R 
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: i386-pc-solaris2.10 (32-bit) 
+~~~
+
+## Install optional components
+
+Up to four different R versions are compiled and installed on the system.
 In order to use a specific R version put its `bin` directory into your `PATH`.
 
-Compiler        | Arch     | Prefix   
---------------- | -------- | ---------------------
-Sun Compiler    | 32-bit   | `/usr/R-sun32`
-                | 64-bit   | `/usr/R-sun64`
-GCC Compiler    | 32-bit   | `/usr/R-gcc32`
+Compiler        | Arch     | Prefix                
+--------------- | -------- | --------------------- 
+Sun Compiler    | 32-bit   | `/usr/R-sun32`      
+                | 64-bit   | `/usr/R-sun64`        
+GCC Compiler    | 32-bit   | `/usr/R-gcc32`         
                 | 64-bit   | `/usr/R-gcc64`
   
-### Example
 
-Using the 64-bit R version using the Sun compiler:
+If you want to install all four R versions you can uncomment the full setup - see file `vagrant/provision.sh`
+or run provisioners on demand.
 
-    $ PATH=/usr/R-sun64/bin:$PATH
-    $ export PATH
-    $ R
+~~~
+vagrant provision --provision-with <component1>,<component2>,...
+~~~
 
-## Test Host Configurations
+Component      | Description
+-------------- | ---------------------------------------------------
+`solstudio`    | Sun C/C++/Fortran Compiler
+`gcc`          | GCC C/C++/Fortan Compiler
+`tex`          | TexLive + Font Extras
+`rdev`         | R Development Setup (iconv/readline) + Source code
+`rbuild-sun32` | Build R 32-bit with Sun Compiler 
+`rbuild-sun64` | Build R 64-bit with Sun Compiler 
+`rbuild-gcc32` | Build R 32-bit with GCC Compiler 
+`rbuild-gcc64` | Build R 64-bit with GCC Compiler 
+
+For example, building the 64-bit version with sun is done via
+
+~~~
+$ vagrant provision --provision-with rbuild-sun64
+~~~
+   
+## Tested Host Configurations
 
 The following configurations have been reported as successful:
 - Mac OS X 10.8.5, Packer 0.7.5, Vagrant 1.7.2, VirtualBox 4.3.26
@@ -89,7 +142,7 @@ The following configurations have been reported as successful:
 
   Download Solaris Studio Installer and place file under `vagrant/_dl`. (Re-read 'Getting Started')
 
-- Warnings during configuration of R:
+- Even with a full tool stack (including Tex) we get warnings during configuration of R:
 
   ~~~
   configure: WARNING: you cannot build info or HTML versions of the R manuals
