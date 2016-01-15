@@ -1,5 +1,11 @@
-cd ${HOME}/R-3.2.2
-make distclean
+set -x
+V=3.2.2
+T=sun32
+S=${HOME}/src/R-${V}
+B=${HOME}/build/R-${V}-${T}
+rm -Rf ${B}
+mkdir -p ${B}
+cd ${B}
 tee config.site <<EOF
 CC="cc -xc99"
 CFLAGS="-O -xlibmieee"
@@ -12,7 +18,7 @@ FCFLAGS=$FFLAGS
 FCLIBS="-lfai -lfsu"
 R_LD_LIBRARY_PATH="/usr/local/lib:/opt/csw/gcc4/lib:/opt/csw/lib"
 EOF
-./configure --prefix=/usr/R-sun32 CPPFLAGS="-I/opt/csw/include" LDFLAGS="-L/opt/csw/lib" 
+${S}/configure --prefix=/usr/R-${T} CPPFLAGS="-I/opt/csw/include" LDFLAGS="-L/opt/csw/lib" 
 make
 sudo make install
 
